@@ -11,6 +11,7 @@ The repository folders are grouped by the type of artifact they generate:
 | Folder | Artifact            |
 | ------ | ------------------- |
 | libs   | Re-usable libraries |
+| katas  | Coding exercises    |
 
 # Project / Package Structure
 

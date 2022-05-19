@@ -4,7 +4,8 @@
   "packageManager": "yarn@3.2.1",
   "private": true,
   "workspaces": [
-    "libs/*"
+    "libs/*",
+    "katas/*"
   ],
   "scripts": {
     "build": "yarn workspaces foreach -vpt run build",

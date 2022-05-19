@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "module": "commonjs",
+    "declaration": true,
+    "declarationMap": true,
+    "removeComments": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "target": "es2020",
+    "sourceMap": true,
+    "incremental": true,
+    "outDir": "dist",
+    "rootDir": ".",
+    "tsBuildInfoFile": "dist/incremental.build"
+  },
+  "include": ["src"],
+  "exclude": ["node_modules", "dist", "coverage"]
+}
