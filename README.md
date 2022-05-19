@@ -22,17 +22,17 @@ To help with consistency, each package is organized more or less with the same f
 | src    | Typescript source code and jest unit tests |
 | test   | Integration tests and text fixture data    |
 
-**Note:** There isn't any one standard NodeJS folder structure as the eco-system frameworks tend to define their own structures (i.e. `app` versus `lib`, or `lib` versus `src`). Where possible, the above folders are used but may change based on the demands of a framework like `react`, `vue`, or `angular`
+**Note:** There isn't any one standard NodeJS folder structure as the `node` eco-system frameworks tend to define their own structures (i.e. `app` versus `lib`, or `lib` versus `src`). Where possible, the above folders are used but may change based on the demands of opinionated frameworks like `react`, `vue`, or `angular`
 
 # Node
 
-[NodeJS is released](https://nodejs.org/en/about/releases/) with different types of stability (i.e. `Current`, `Active`, and `Maintenance` across multiple versions to prevent breaking changes from impacting existing code.
+[NodeJS is released](https://nodejs.org/en/about/releases/) with different types of stability (i.e. `Current`, `Active`, and `Maintenance`) across multiple versions to prevent breaking changes from impacting existing code.
 
 Projects that take advantage of, or depend on, specific [JavaScript language features](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Language_Resources) need to have a simple way of overridding the node version being used when compling the code.
 
 A simple way to achieve this is to use tools like [nodenv](https://github.com/nodenv/nodenv) or [nvm](https://github.com/nvm-sh/nvm)
 
-The root folder contains a default [.nvmrc file](https://github.com/nvm-sh/nvm#nvmrc) which can be used by either `nvm` or `nodenv` to set the version of `node` to use.
+The root folder contains a default [.nvmrc file](https://github.com/nvm-sh/nvm#nvmrc) which can be used by either `nvm` or `nodenv` to set the version of `node`.
 
 **Note:** global node packages installed via `npm install -g` will use the directory configured for `nvm` or `nodenv` instead of the standard location of node (depending on how it was installed)
 
@@ -63,7 +63,7 @@ To enhance build-time behavior, the plugin [yarn-workspace-tools](https://yarnpk
 yarn plugin import workspace-tools
 ```
 
-`yarn [command]` from the root of the repository will use the `foreach` command from yarn workspaces plugin to run a yarn command on each package in all workspaces in dependency order:
+`yarn [command]` from the root of the repository will use the `foreach` command from the yarn workspaces plugin to run a yarn command on each package in all workspaces in dependency order:
 
 | Command  | Purpose                                      |
 | -------- | -------------------------------------------- |
@@ -153,4 +153,4 @@ git add .
 git commit -m "chore(repository): initial commit"
 ```
 
-Note: this repository doesn't currently use packages like [husku](https://www.conventionalcommits.org/en/v1.0.0/) to wrap [git hooks](https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks) to enforce style, linting, or commit message format, but this could easily be added.
+**Note:** this repository doesn't currently use packages like [husky](https://www.conventionalcommits.org/en/v1.0.0/) to wrap [git hooks](https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks) to enforce style, linting, or commit message format, but this could easily be added.
