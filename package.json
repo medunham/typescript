@@ -3,6 +3,9 @@
   "description": "Personal TypeScript Monorepo",
   "packageManager": "yarn@3.2.1",
   "private": true,
+  "workspaces": [
+    "libs/*"
+  ],
   "scripts": {
     "build": "yarn workspaces foreach -vpt run build",
     "coverage": "yarn workspaces foreach -vp run coverage",
