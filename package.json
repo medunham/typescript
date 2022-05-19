@@ -1,0 +1,14 @@
+{
+  "name": "@medunham/typescript",
+  "description": "Personal TypeScript Monorepo",
+  "packageManager": "yarn@3.2.1",
+  "private": true,
+  "scripts": {
+    "build": "yarn workspaces foreach -vpt run build",
+    "coverage": "yarn workspaces foreach -vp run coverage",
+    "clean": "yarn workspaces foreach -vp run clean",
+    "format": "yarn workspaces foreach -vp run format",
+    "lint": "yarn workspaces foreach -vp run lint",
+    "test": "yarn workspaces foreach -vp run test"
+  }
+}
