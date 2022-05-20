@@ -4,8 +4,8 @@ As a quick summary of how to make the enhancements for this kata, the simplest o
 
 1. Add missing specs / test before making any significant changes (i.e. try and get highest coverage possible)
 2. Add a failing test for the new feature request
-3. Update the existing code to meet the needed requirement using the existin style (as ugly as that is)
-4. Re-factor elements of the code capture in the notes to improve the quality / maintainability of the code and test
+3. Update the existing code to meet the needed requirement using the existing style (as ugly as that is)
+4. Re-factor elements of the code, based on ideas captured in the notes to improve the quality / maintainability of the code and tests
 
 # Process
 
@@ -25,7 +25,7 @@ I like to paraphrase the problem statement / goals to ensure I understand it, ta
 
 - The gist of the system is an inventory management system with products that change in quality as they approach their sell by date
 - The rate of change depends on the type of product and it's relationship to it's sell-in (or sell-by value)
-- The new feature request is to have an item that decay's in quality twice as fast as other items
+- The new feature request is to have a `Conjured` item that decay's in quality twice as fast as other standard items
 
 # Initial Observations:
 
@@ -95,7 +95,7 @@ Apply a little thinking about how a solution / design to solve the problem might
 
 - The current code is nicely encapsulated in a single file (i.e. `app/gilded-rose.ts`) but it is probably worth while to break out the concepts in that single file to multiple files.
   - A good reason to do that, if for no other reason, is to reduce merge conflicts if multiple people are working on the same file
-  - Another good reason is to help a developer quickly identify the concept of the problem they are working on
+  - Another good reason is to help a developer quickly identify the concept of the problem they are working on and keep the file to a single purpose when making changes.
 - The code naming isn't very helpful in identifying what is going on.
   - Even if this is a small simple project, using names that help a developer separate code from different packages and locate the correct piece of functionality increases productivity dramatically.
     - `GildedRose` is the name of a business, not necessarily what the class in question is doing.
@@ -111,10 +111,11 @@ Apply a little thinking about how a solution / design to solve the problem might
 ### Syntax / Language Features
 
 - Supposing we wanted to use mutation for the update logic, we could certainly shorten the code up by using mutation operators like `--`, `++`, `-=`, or `+=`
-- Using an for loop with incrementing counter can be problematic
+- Using a for loop with incrementing counter can be problematic
+  - There are simpler constructs like `array.forEach` or `for (const x in array)` that use an iterator instead of a incrementing number
   - If we decide to do any kind of asynchronous work with this code in the future, assuming a static unchanging array reference might be unsafe
 - Use of `==` or `!=` instead of `===` or `!==` can be problematic if the constant static values are replaced in the future with other variables with different types ([great stackoverflow question on this topic](https://stackoverflow.com/questions/359494/which-equals-operator-vs-should-be-used-in-javascript-comparisons))
-- The constructor definition defaults the items array (which is odd). A simpler pattern might be something like `constructor(items) { this.items = items || [] }` (or using the modifier syntax with a default as defined below)
+- The constructor definition defaults the items array (which is odd). A simpler pattern might be something like `constructor(items?: Item[]) { this.items = items || [] }` (or using the modifier syntax with a default as defined below)
 - Use the `constructor` modifier attributes to concisely define member variables (i.e. `constructor(protected items)) { ... }`) for less boilerplate
 - `Array<Item>` isn't necessary, the short hand syntax can be used instead (i.e `Item[]`)
 - Both class constructors have odd / missing argument type declarations
@@ -135,7 +136,7 @@ Apply a little thinking about how a solution / design to solve the problem might
   - If a code base is developed without TDD / Tests, it can be very difficult to go back and retrofit when refactoring is required
     - Having done test retrofitting, you tend to find [Code smells](https://en.wikipedia.org/wiki/Code_smell) and [Design smells](https://en.wikipedia.org/wiki/Design_smell) that could have been found up front with good test design / coverage
 - It is very difficult to maintain 100% unit test code coverage on any code base but in my experience, it is often important to keep coverage above 80%
-  - Some code bases just don't have easy ways to exercise code without adding a lot of difficult to maintain injection style mocks (which makes test hard to maintain and brittle to code change)
+  - Some code bases just don't have easy ways to exercise code without adding a lot of difficult to maintain injection style mocks, which makes tests hard to maintain, and brittle, if the code under test changes.
 - As a general philosophy, I like the [Arrange-Act-Assert pattern](https://automationpanda.com/2020/07/07/arrange-act-assert-a-pattern-for-writing-good-tests/) for writing tests
   - When possible, construct code in units that return values that can be tested and with dependencies that can be mocked
     - Following that strategy secretly makes your code composable and avoids having to perform `unnatural` acts to test it

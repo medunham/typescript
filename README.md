@@ -113,7 +113,7 @@ In order for packages to take advantage of the `prettier` formatting, they need 
 
 ESLint
 
-The [eslint](https://eslint.org/) package is used to [lint](<https://en.wikipedia.org/wiki/Lint_(software)>) the javascript looking for common mistakes and will return a non-zero value if any of the
+The [eslint](https://eslint.org/) package is used to [lint](<https://en.wikipedia.org/wiki/Lint_(software)>) the javascript looking for common mistakes and will return a non-zero value if any of the packages have errors.
 
 The root [eslintrc.js](.eslintrc.js) configuration file adds plugins to support typescript and to also prevent formatting conflicts between `prettier` and `eslint`. It also adds the following custom rules:
 
