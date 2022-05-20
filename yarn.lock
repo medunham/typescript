@@ -671,7 +671,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@medunham/common@workspace:libs/common":
+"@medunham/common@workspace:^, @medunham/common@workspace:libs/common":
   version: 0.0.0-use.local
   resolution: "@medunham/common@workspace:libs/common"
   dependencies:
@@ -694,6 +694,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@medunham/kata-gilded-rose@workspace:katas/gilded-rose"
   dependencies:
+    "@medunham/common": "workspace:^"
     "@types/jest": ^27.0.3
     "@types/node": ^16.11.0
     "@typescript-eslint/eslint-plugin": ^2.23.0

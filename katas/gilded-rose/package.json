@@ -42,5 +42,8 @@
       "^.+\\.ts$": "ts-jest"
     },
     "coverageDirectory": "coverage"
+  },
+  "dependencies": {
+    "@medunham/common": "workspace:^"
   }
 }
