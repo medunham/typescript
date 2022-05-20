@@ -1,10 +1,9 @@
 import { Item } from './models';
 
 export class GildedRose {
-  items: Array<Item>;
-  
+  items: Item[];
 
-  constructor(items = [] as Array<Item>) {
+  constructor(items: Item[] = []) {
     this.items = items;
   }
 
