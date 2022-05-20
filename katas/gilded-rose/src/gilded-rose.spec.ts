@@ -1,4 +1,5 @@
-import { Item, GildedRose } from './gilded-rose';
+import { Item } from './models';
+import { GildedRose } from './gilded-rose';
 
 // const pass = new Item('Backstage passes to a TAFKAL80ETC concert', 1, 1);
 // const mace = new Item('Sulfuras, Hand of Ragnaros', 5, 5);
