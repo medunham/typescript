@@ -1,10 +1,6 @@
 import { GildedRose } from './gilded-rose';
 import { Item, AGED_CHEESE, BACKSTAGE_PASS, CONJURED_ITEM, LEGENDARY_MACE } from './models';
 
-// const pass = new Item('Backstage passes to a TAFKAL80ETC concert', 1, 1);
-// const mace = new Item('Sulfuras, Hand of Ragnaros', 5, 5);
-// const other = new Item('Other', 20, 20);
-
 describe('Gilded Rose', () => {
   let items: Item[];
 
@@ -233,7 +229,7 @@ describe('Gilded Rose', () => {
 
       describe('and the quality is 0', () => {
         beforeEach(() => {
-          item = new Item('other', 4, 0);
+          item = new Item(CONJURED_ITEM, 4, 0);
           job = new GildedRose([{ ...item }]);
           job.updateQuality();
         });
