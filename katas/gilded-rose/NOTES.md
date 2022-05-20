@@ -4,7 +4,7 @@ As a quick summary of how to make the enhancements for this kata, the simplest o
 
 1. Add missing specs / test before making any significant changes (i.e. try and get highest coverage possible)
 2. Add a failing test for the new feature request
-3. Update the existing code to meet the needed requirement
+3. Update the existing code to meet the needed requirement using the existin style (as ugly as that is)
 4. Re-factor elements of the code capture in the notes to improve the quality / maintainability of the code and test
 
 # Process
@@ -94,7 +94,7 @@ Apply a little thinking about how a solution / design to solve the problem might
 ### Hygiene
 
 - The current code is nicely encapsulated in a single file (i.e. `app/gilded-rose.ts`) but it is probably worth while to break out the concepts in that single file to multiple files.
-  - A good reason to do that, is for no other reason, reducing merge conflicts if multiple people are working on the same file
+  - A good reason to do that, if for no other reason, is to reduce merge conflicts if multiple people are working on the same file
   - Another good reason is to help a developer quickly identify the concept of the problem they are working on
 - The code naming isn't very helpful in identifying what is going on.
   - Even if this is a small simple project, using names that help a developer separate code from different packages and locate the correct piece of functionality increases productivity dramatically.

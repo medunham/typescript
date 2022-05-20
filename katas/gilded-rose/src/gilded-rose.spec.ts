@@ -197,6 +197,56 @@ describe('Gilded Rose', () => {
       });
     });
 
+    describe('conjured items', () => {
+      describe('and the sellIn date is in the future', () => {
+        beforeEach(() => {
+          item = new Item('Conjured', 4, 20);
+          job = new GildedRose([{ ...item }]);
+          job.updateQuality();
+        });
+
+        it('decreases the sellIn by 1', () => {
+          expect(job.items[0].sellIn).toEqual(item.sellIn - 1);
+        });
+
+        it('decreases the quality by 2', () => {
+          expect(job.items[0].quality).toEqual(item.quality - 2);
+        });
+      });
+
+      describe('and the sellIn date has passed', () => {
+        beforeEach(() => {
+          item = new Item('Conjured', -1, 20);
+          job = new GildedRose([{ ...item }]);
+          job.updateQuality();
+        });
+
+        it('decreases the sellIn by 1', () => {
+          expect(job.items[0].sellIn).toEqual(item.sellIn - 1);
+        });
+
+        it('decreases the quality by 4', () => {
+          expect(job.items[0].quality).toEqual(item.quality - 4);
+        });
+      });
+
+      describe('and the quality is 0', () => {
+        beforeEach(() => {
+          item = new Item('other', 4, 0);
+          job = new GildedRose([{ ...item }]);
+          job.updateQuality();
+        });
+
+        it('decreases the sellIn by 1', () => {
+          expect(job.items[0].sellIn).toEqual(item.sellIn - 1);
+        });
+
+        it('quality does not change', () => {
+          expect(job.items[0].quality).toEqual(item.quality);
+        });
+      });
+    });
+
     describe('other items', () => {
       describe('and the sellIn date is in the future', () => {
         beforeEach(() => {
