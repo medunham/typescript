@@ -1,5 +1,5 @@
-import { Item } from './models';
 import { GildedRose } from './gilded-rose';
+import { Item, AGED_CHEESE, BACKSTAGE_PASS, CONJURED_ITEM, LEGENDARY_MACE } from './models';
 
 // const pass = new Item('Backstage passes to a TAFKAL80ETC concert', 1, 1);
 // const mace = new Item('Sulfuras, Hand of Ragnaros', 5, 5);
@@ -35,7 +35,7 @@ describe('Gilded Rose', () => {
     describe('a backstage pass', () => {
       describe('with more than 10 days until the sellIn date', () => {
         beforeEach(() => {
-          item = new Item('Backstage passes to a TAFKAL80ETC concert', 11, 10);
+          item = new Item(BACKSTAGE_PASS, 11, 10);
           job = new GildedRose([{ ...item }]);
           job.updateQuality();
         });
@@ -51,7 +51,7 @@ describe('Gilded Rose', () => {
 
       describe('with between 5 and 10 days until the sellIn date', () => {
         beforeEach(() => {
-          item = new Item('Backstage passes to a TAFKAL80ETC concert', 9, 10);
+          item = new Item(BACKSTAGE_PASS, 9, 10);
           job = new GildedRose([{ ...item }]);
           job.updateQuality();
         });
@@ -67,7 +67,7 @@ describe('Gilded Rose', () => {
 
       describe('with between 1 and 5 days left until the sellIn date', () => {
         beforeEach(() => {
-          item = new Item('Backstage passes to a TAFKAL80ETC concert', 4, 10);
+          item = new Item(BACKSTAGE_PASS, 4, 10);
           job = new GildedRose([{ ...item }]);
           job.updateQuality();
         });
@@ -83,7 +83,7 @@ describe('Gilded Rose', () => {
 
       describe('is past the sellIn date', () => {
         beforeEach(() => {
-          item = new Item('Backstage passes to a TAFKAL80ETC concert', 0, 10);
+          item = new Item(BACKSTAGE_PASS, 0, 10);
           job = new GildedRose([{ ...item }]);
           job.updateQuality();
         });
@@ -99,7 +99,7 @@ describe('Gilded Rose', () => {
 
       describe('and the quality is 50', () => {
         beforeEach(() => {
-          item = new Item('Backstage passes to a TAFKAL80ETC concert', 4, 50);
+          item = new Item(BACKSTAGE_PASS, 4, 50);
           job = new GildedRose([{ ...item }]);
           job.updateQuality();
         });
@@ -117,7 +117,7 @@ describe('Gilded Rose', () => {
     describe('aged brie', () => {
       describe('and the sellIn date is in the future', () => {
         beforeEach(() => {
-          item = new Item('Aged Brie', 4, 20);
+          item = new Item(AGED_CHEESE, 4, 20);
           job = new GildedRose([{ ...item }]);
           job.updateQuality();
         });
@@ -133,7 +133,7 @@ describe('Gilded Rose', () => {
 
       describe('and the sellIn date has passed', () => {
         beforeEach(() => {
-          item = new Item('Aged Brie', 0, 20);
+          item = new Item(AGED_CHEESE, 0, 20);
           job = new GildedRose([{ ...item }]);
           job.updateQuality();
         });
@@ -149,7 +149,7 @@ describe('Gilded Rose', () => {
 
       describe('and the quality is 50', () => {
         beforeEach(() => {
-          item = new Item('Aged Brie', 10, 50);
+          item = new Item(AGED_CHEESE, 10, 50);
           job = new GildedRose([{ ...item }]);
           job.updateQuality();
         });
@@ -167,7 +167,7 @@ describe('Gilded Rose', () => {
     describe('sulfuras, hand of ragnaros', () => {
       describe('and the sellIn date is in the future', () => {
         beforeEach(() => {
-          item = new Item('Sulfuras, Hand of Ragnaros', 4, 80);
+          item = new Item(LEGENDARY_MACE, 4, 80);
           job = new GildedRose([{ ...item }]);
           job.updateQuality();
         });
@@ -183,7 +183,7 @@ describe('Gilded Rose', () => {
 
       describe('and the sellIn date has passed', () => {
         beforeEach(() => {
-          item = new Item('Sulfuras, Hand of Ragnaros', -1, 80);
+          item = new Item(LEGENDARY_MACE, -1, 80);
           job = new GildedRose([{ ...item }]);
           job.updateQuality();
         });
@@ -201,7 +201,7 @@ describe('Gilded Rose', () => {
     describe('conjured items', () => {
       describe('and the sellIn date is in the future', () => {
         beforeEach(() => {
-          item = new Item('Conjured', 4, 20);
+          item = new Item(CONJURED_ITEM, 4, 20);
           job = new GildedRose([{ ...item }]);
           job.updateQuality();
         });
@@ -217,7 +217,7 @@ describe('Gilded Rose', () => {
 
       describe('and the sellIn date has passed', () => {
         beforeEach(() => {
-          item = new Item('Conjured', -1, 20);
+          item = new Item(CONJURED_ITEM, -1, 20);
           job = new GildedRose([{ ...item }]);
           job.updateQuality();
         });
