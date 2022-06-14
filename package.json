@@ -5,7 +5,8 @@
   "private": true,
   "workspaces": [
     "libs/*",
-    "katas/*"
+    "katas/*",
+    "services/*"
   ],
   "scripts": {
     "build": "yarn workspaces foreach -vpt run build",

@@ -8,10 +8,11 @@ This project is a [Monorepo](https://en.wikipedia.org/wiki/Monorepo) using [Yarn
 
 The repository folders are grouped by the type of artifact they generate:
 
-| Folder | Artifact            |
-| ------ | ------------------- |
-| libs   | Re-usable libraries |
-| katas  | Coding exercises    |
+| Folder   | Artifact            |
+| -------- | ------------------- |
+| libs     | Re-usable libraries |
+| katas    | Coding exercises    |
+| services | Daemons and API's   |
 
 # Project / Package Structure
 
